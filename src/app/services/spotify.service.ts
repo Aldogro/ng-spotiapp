@@ -7,8 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class SpotifyService {
 
   // tslint:disable-next-line:max-line-length
-  token = 'BQAJ1fCQUchEIvUZbSqigUAYo5MY3Tr8_JKxRxGd_G_U-Y7ZXKF27zI62O_sf-l1MCLrVfOmorH9irDb0YE';
-  next: any;
+  token = 'BQA5xhc7cSHUChJ7IG9Q4_1UJ9POUIjQIvcjgq9CDFAEz9qu0f7IJsKNRWdA-mH4fOYu7OhaVQPPCeoSw_E';
   mensaje: string;
   total: number;
 
@@ -24,7 +23,7 @@ export class SpotifyService {
       // tslint:disable-next-line:max-line-length
       Authorization : `Bearer ${this.token}`
     });
-    return this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=10`, { headers });
+    return this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=20`, { headers });
   }
 
   getNewReleases(offset, limit) {
