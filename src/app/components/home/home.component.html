@@ -1,0 +1,20 @@
+<div class="text-center mb-5">
+    <button type="button" class="btn btn-primary" (click)="paginaAnterior()" *ngIf="this.offset != 0">Volver</button>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <button type="button" class="btn btn-primary" (click)="proximaPagina()" *ngIf="this.offset != (this.total -20) ">Próxima página</button>
+</div>
+
+<div class="card-columns">
+    <div class="card text-center" *ngFor="let cancion of canciones">
+      <img [src]="cancion.images[1].url" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title">{{ cancion.name }}</h5>
+        <p class="card-text"><i>Publicada:<small> {{ cancion.release_date }}</small></i></p>
+        <p class="badge badge-primary">{{ cancion.artists[0].name }}</p>
+        <p class="card-text">
+            <a class="btn btn-success" target="_blank" [href]="cancion.artists[0].external_urls.spotify">Escuchar</a>
+        </p>
+      </div>
+    </div>
+</div>
+
