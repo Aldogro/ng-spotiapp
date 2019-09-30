@@ -1,0 +1,13 @@
+<div class="card-columns">
+    <div class="card text-center animated fadeIn fast" *ngFor="let cancion of items">
+        <img [src]="cancion.images | noimage" class="card-img-top" alt="">
+        <div class="card-body">
+        <h5 class="card-title">{{ cancion.name }}</h5>
+        <p class="card-text"><i>Publicada:<small> {{ cancion.release_date }}</small></i></p>
+        <p class="badge badge-primary">{{ cancion.artists[0].name }}</p>
+        <p class="card-text">
+            <a class="btn btn-success" target="_blank" [href]="cancion.artists[0].external_urls.spotify">Escuchar</a>
+        </p>
+        </div>
+    </div>
+</div>

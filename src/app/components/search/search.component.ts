@@ -9,19 +9,22 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class SearchComponent implements OnInit {
 
   artistas: any[] = [];
+  loading: boolean;
 
   constructor(
     private spotify: SpotifyService
-  ) { }
+  ) {}
 
   ngOnInit() {
   }
 
-  buscar(termino) {
-    this.spotify.getArtista(termino)
+  buscar( termino ) {
+    this.spotify.getArtista( termino )
     .subscribe(data => {
+      this.loading = true;
       // tslint:disable-next-line:no-string-literal
-      this.artistas = data['artists'].items;
+      this.artistas = data;
+      this.loading = false;
       console.log(this.artistas);
     });
   }

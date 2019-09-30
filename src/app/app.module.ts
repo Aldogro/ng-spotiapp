@@ -7,10 +7,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { APP_ROUTING } from './app.routes';
 
+/* componentes */
 import { ArtistaComponent } from './components/artista/artista.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
+
+/* pipes */
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,10 @@ import { SearchComponent } from './components/search/search.component';
     ArtistaComponent,
     HomeComponent,
     NavbarComponent,
-    SearchComponent
+    SearchComponent,
+    NoimagePipe,
+    TarjetasComponent,
+    LoadingComponent
   ],
   imports: [
     APP_ROUTING,

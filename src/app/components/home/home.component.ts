@@ -15,21 +15,18 @@ export class HomeComponent implements OnInit {
   offset = 0;
   limit = 20;
   mensaje: string;
-  total: number;
+  total: 100;
+  loading: boolean;
 
   constructor(
     private spotify: SpotifyService
   ) {
+    this.loading = true;
     this.spotify.getNewReleases(this.offset, this.limit)
       .subscribe((data) => {
         // tslint:disable-next-line:no-string-literal
-        this.canciones = data['albums'].items;
-        // tslint:disable-next-line:no-string-literal
-        this.next = data['albums'].next;
-        // tslint:disable-next-line:no-string-literal
-        this.total = data['albums'].total;
-        console.log(data);
-        console.log(this.canciones);
+        this.canciones = data;
+        this.loading = false;
       });
   }
 
@@ -45,7 +42,7 @@ export class HomeComponent implements OnInit {
       this.spotify.getNewReleases(this.offset, this.limit)
       .subscribe( data => {
         // tslint:disable-next-line:no-string-literal
-        this.canciones = data['albums'].items;
+        this.canciones = data;
       });
     }
   }
@@ -59,7 +56,7 @@ export class HomeComponent implements OnInit {
       this.spotify.getNewReleases(this.offset, this.limit)
       .subscribe( data => {
         // tslint:disable-next-line:no-string-literal
-        this.canciones = data['albums'].items;
+        this.canciones = data;
       });
     }
   }

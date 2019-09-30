@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
   // tslint:disable-next-line:max-line-length
-  token = 'BQA5xhc7cSHUChJ7IG9Q4_1UJ9POUIjQIvcjgq9CDFAEz9qu0f7IJsKNRWdA-mH4fOYu7OhaVQPPCeoSw_E';
   mensaje: string;
   total: number;
+  token = 'BQCSO2T7SONthKbNt49ENH70IyWTQ2BxHMFkB4qzTsm-08pSS4fD0uoiADDROEWR3mzlWHg1kd6IFhkUZOA';
 
   constructor(
     private http: HttpClient
@@ -17,20 +19,23 @@ export class SpotifyService {
     console.log('servicio de spotify listo');
   }
 
-
-  getArtista( termino: string ) {
+  getQuery( query: string ) {
+    const url = `https://api.spotify.com/v1/${ query }`;
     const headers = new HttpHeaders({
-      // tslint:disable-next-line:max-line-length
       Authorization : `Bearer ${this.token}`
     });
-    return this.http.get(`https://api.spotify.com/v1/search?q=${termino}&type=artist&limit=20`, { headers });
+    return this.http.get(url, { headers });
+  }
+
+  getArtista( termino: string ) {
+    return this.getQuery(`search?q=${termino}&type=artist&limit=20`)
+      // tslint:disable-next-line:no-string-literal
+      .pipe( map( data => data['artists'].items ));
   }
 
   getNewReleases(offset, limit) {
-    const headers = new HttpHeaders({
-      // tslint:disable-next-line:max-line-length
-      Authorization : `Bearer ${this.token}`
-    });
-    return this.http.get(`https://api.spotify.com/v1/browse/new-releases?offset=${offset}&limit=${limit}`, { headers });
+    return this.getQuery(`browse/new-releases?offset=${offset}&limit=${limit}`)
+    // tslint:disable-next-line:no-string-literal
+      .pipe( map( data => data['albums'].items ));
   }
 }
