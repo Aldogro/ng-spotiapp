@@ -11,7 +11,7 @@ export class SpotifyService {
   // tslint:disable-next-line:max-line-length
   mensaje: string;
   total: number;
-  token = 'BQCSO2T7SONthKbNt49ENH70IyWTQ2BxHMFkB4qzTsm-08pSS4fD0uoiADDROEWR3mzlWHg1kd6IFhkUZOA';
+  token = 'BQAULOhbuyOfvfu9hK3DjHZu1y14QmJ8aonVMw9QUYv9nPONLkk97WNWCgKVCHvYwxOu-YoNt53EL5e0P4k';
 
   constructor(
     private http: HttpClient
@@ -27,7 +27,7 @@ export class SpotifyService {
     return this.http.get(url, { headers });
   }
 
-  getArtista( termino: string ) {
+  getArtistas( termino: string ) {
     return this.getQuery(`search?q=${termino}&type=artist&limit=20`)
       // tslint:disable-next-line:no-string-literal
       .pipe( map( data => data['artists'].items ));
@@ -37,5 +37,11 @@ export class SpotifyService {
     return this.getQuery(`browse/new-releases?offset=${offset}&limit=${limit}`)
     // tslint:disable-next-line:no-string-literal
       .pipe( map( data => data['albums'].items ));
+  }
+
+  getArtista( artistId: string ) {
+    return this.getQuery(`artists/${artistId}`);
+    // tslint:disable-next-line:no-string-literal
+    // .pipe( map( data => data['albums'].items));
   }
 }

@@ -2,7 +2,7 @@
 <div class="text-center mb-5">
     <button type="button" class="btn btn-primary animated fadeIn fast" (click)="paginaAnterior()" *ngIf="this.offset != 0">Volver</button>
     <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <button type="button" class="btn btn-primary animated fadeIn fast" (click)="proximaPagina()" *ngIf="this.offset != (this.total -20) ">Próxima página</button>
+    <button type="button" class="btn btn-primary animated fadeIn fast" (click)="proximaPagina()" *ngIf="offset != (total -20) ">Próxima página</button>
 </div>
 <app-loading *ngIf="loading"></app-loading>
 

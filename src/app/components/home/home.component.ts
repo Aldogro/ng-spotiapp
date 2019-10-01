@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
       .subscribe((data) => {
         // tslint:disable-next-line:no-string-literal
         this.canciones = data;
+        console.log(data);
         this.loading = false;
       });
   }

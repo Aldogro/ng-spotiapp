@@ -6,7 +6,7 @@
 <hr>
 <app-loading class="text-center" *ngIf="loading"></app-loading>
 <div class="card-columns">
-    <div class="card text-center animated fadeIn fast" *ngFor="let artista of artistas">
+    <div class="card text-center animated fadeIn fast puntero" (click)="mostrarArtista( artista )" *ngFor="let artista of artistas">
         <img [src]="artista.images | noimage" class="card-img-top" [alt]="artista.name">
         <div class="card-body">
         <h5 class="card-title">{{ artista.name }} <span class="badge badge-primary"> {{ artista.followers.total }} </span> </h5>

@@ -11,7 +11,7 @@ export class NoimagePipe implements PipeTransform {
       return 'https://www.testingxperts.com/wp-content/uploads/2019/02/placeholder-img.jpg';
     }
     if ( images.length > 0 ) {
-      return images[1].url;
+      return images[0].url;
     } else {
       return 'https://www.testingxperts.com/wp-content/uploads/2019/02/placeholder-img.jpg';
     }
