@@ -11,7 +11,7 @@ export class SpotifyService {
   // tslint:disable-next-line:max-line-length
   mensaje: string;
   total: number;
-  token = 'BQAULOhbuyOfvfu9hK3DjHZu1y14QmJ8aonVMw9QUYv9nPONLkk97WNWCgKVCHvYwxOu-YoNt53EL5e0P4k';
+  token = 'BQA5Ra3CpLpjV1HxHRf-M22iddt0B52yGHvbODHkiodKF_ftnf1eNGomODsC0gRUlme1rAMcYulAunayF-Y';
 
   constructor(
     private http: HttpClient
@@ -43,5 +43,8 @@ export class SpotifyService {
     return this.getQuery(`artists/${artistId}`);
     // tslint:disable-next-line:no-string-literal
     // .pipe( map( data => data['albums'].items));
+  }
+  getArtistaTopTracks( artistId: string ) {
+    return this.getQuery(`artists/${artistId}/top-tracks?country=es`);
   }
 }

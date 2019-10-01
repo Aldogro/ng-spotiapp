@@ -1,0 +1,8 @@
+.track {
+    display: grid;
+    justify-content: center;
+    background-color: grey;
+    border-radius: 5px;
+    padding: 4px;
+    margin-top: 5px;
+}

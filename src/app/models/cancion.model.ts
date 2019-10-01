@@ -1,9 +1,9 @@
 export class Cancion {
   constructor(
     public name: string,
-    public release_date: Date,
+    public releaseDate: Date,
     public artists: string[],
-    public external_url: string,
+    public externalUrl: string,
     public images?: string[]
   ) {}
 }

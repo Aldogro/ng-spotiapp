@@ -27,12 +27,10 @@ export class SearchComponent implements OnInit {
       // tslint:disable-next-line:no-string-literal
       this.artistas = data;
       this.loading = false;
-      console.log(this.artistas);
     });
   }
 
   mostrarArtista( artista: any ) {
-    console.log( artista.id );
     this.router.navigate([ '/artist', artista.id ]);
   }
 }

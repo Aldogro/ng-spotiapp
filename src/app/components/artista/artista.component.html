@@ -12,3 +12,26 @@
         <button routerLink="/search" class="btn btn-outline-danger">Volver</button>
     </div>
 </div>
+<hr>
+<div class="row">
+    <div class="col">
+        <table class="table text-center" style="color: white">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Álbum</th>
+                    <th>Canción</th>
+                    <th>Vista Previa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let track of topTracks">
+                    <td><img [src]="track.album.images[0].url" [alt]="track.album.name" class="img-thumb"></td>
+                    <td>{{ track.album.name }}</td>
+                    <td>{{ track.name }}</td>
+                    <td><audio [src]="track.preview_url" controls></audio></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
