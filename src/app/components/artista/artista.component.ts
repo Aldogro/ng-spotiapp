@@ -39,7 +39,8 @@ export class ArtistaComponent implements OnInit {
   mostrarArtistaTopTracks( artistaId: string ) {
     this.spotify.getArtistaTopTracks( artistaId )
     .subscribe( data => {
-      this.topTracks = data.tracks;
+      // tslint:disable-next-line:no-string-literal
+      this.topTracks = data['tracks'];
       console.log( this.topTracks );
     });
   }

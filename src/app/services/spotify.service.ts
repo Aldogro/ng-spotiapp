@@ -11,7 +11,7 @@ export class SpotifyService {
   // tslint:disable-next-line:max-line-length
   mensaje: string;
   total: number;
-  token = 'BQA5Ra3CpLpjV1HxHRf-M22iddt0B52yGHvbODHkiodKF_ftnf1eNGomODsC0gRUlme1rAMcYulAunayF-Y';
+  token = 'BQCyMpbrwvtEGFyUt8fVa9pzftI7NAWjQR0QHBbNKZDz8EC0HuH7SqUVy_sBV5XaacZomBCBp3BnXE8jFDo';
 
   constructor(
     private http: HttpClient
