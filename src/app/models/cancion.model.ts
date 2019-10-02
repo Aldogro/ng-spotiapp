@@ -1,9 +1,15 @@
 export class Cancion {
-  constructor(
-    public name: string,
-    public releaseDate: Date,
-    public artists: string[],
-    public externalUrl: string,
-    public images?: string[]
-  ) {}
+  name: string;
+  releaseDate: Date;
+  artists: string[];
+  externalUrl: string;
+  images: string[];
+
+  constructor(cancion) {
+    this.name = cancion.name;
+    this.releaseDate = cancion.release_date;
+    this.artists = cancion.artists;
+    this.externalUrl = cancion.external_urls.sporify;
+    this.images = cancion.images;
+  }
 }
